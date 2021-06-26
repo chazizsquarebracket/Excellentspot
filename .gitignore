@@ -1,0 +1,13 @@
+## User-generated files
+conf/config.php
+templates/cache/
+assets/profpic/
+assets/thumb/
+*.mp4
+videos/
+
+## Composer
+vendor/
+composer.lock
+bootstrap/css/bootstrap.css
+bootstrap/css/bootstrap-theme.css
