@@ -26,19 +26,8 @@ foreach(str_split($video_id) as $char){
 $new = substr($new, 0, 11);
 
 if(isset($_POST['upload']) AND isset($currentUser['username'])){
-	$name       = $_FILES['fileToUpload']['name'];  
-    $temp_name  = $_FILES['fileToUpload']['tmp_name'];  // gets video info and thumbnail info
-	$ext  = pathinfo( $_FILES['fileToUpload']['name'], PATHINFO_EXTENSION );
-	$target_file = $_SERVER['DOCUMENT_ROOT'] . '/videos/'.$new.'.'.$ext;
-	if(move_uploaded_file($temp_name, $target_file)){
-		$config = [
-			'timeout'          => 3600, // The timeout for the underlying process
-			'ffmpeg.threads'   => 12,   // The number of threads that FFmpeg should use
-			'ffmpeg.binaries'  => $ffmpegPath,
-			'ffprobe.binaries' => $ffprobePath,
-		];
 		try {
-			query("INSERT INTO videos (video_id, title, description, author, time) VALUES (?,?,?,?,?)",
+			query("INSERT INTO posts (post_id, title, description, author, time) VALUES (?,?,?,?,?)",
 				[$new,$_POST['title'],$_POST['desc'],$currentUser['id'],time()]);
 			redirect('./watch.php?v='.$new);
 		} catch (Exception $e) {
@@ -48,7 +37,6 @@ if(isset($_POST['upload']) AND isset($currentUser['username'])){
 			}
 		}
 	}
-}
 
 $twig = twigloader();
 echo $twig->render('upload.twig');

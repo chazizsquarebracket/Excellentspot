@@ -3,25 +3,10 @@
 {% block title %}Home{% endblock %}
 
 	{% block precontent %}
-		{% if logged_in %}
 			<div class="bs-docs-header" style="margin-top:-20px;margin-bottom:20px;">
 				<div class="container">
-					<div class="row">
-						<div class="col-md-8">
-							<h1>Hi there, {{ current_user.username }}</h1>
-							<a href="browse.php" class="btn btn-primary btn-lg">browse ›</a><br>
-						</div>
-						<div class="col-md-4 text-right">
-						<img width="192" src="{{ profile_image(current_user.username) }}" alt="pfp">
-						</div>
-					</div>
-				</div>
-			</div>
-		{% else %}
-			<div class="bs-docs-header" style="margin-top:-20px;margin-bottom:20px;">
-				<div class="container">
-					<h1>Welcome to squareBracket <big>2.0</big></h1>
-					<p>This is like any other video sharing site... for now at least.</p>
+					<h1>Welcome to Excellentspot</h1>
+					<p>We're reusing old squareBracket code.</p>
 					<p>
 						<a href="register.php" class="btn btn-primary btn-lg">Get started ›</a><br>
 						<p class="small">Already have an account?
@@ -29,7 +14,6 @@
 					</p>
 				</div>
 			</div>
-		{% endif %}
 	{% endblock %}
 	{% block content %}
 		<div class="row">
@@ -37,9 +21,9 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" style="margin-bottom:-2px;">
 		  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-		</svg> Featured Videos</div>
+		</svg> Written</div>
 					<div class="panel-body">
-						{% for video in videos %}
+						{% for video in posts %}
 							{{ video_box(video) }}
 						{% else %}
 							<p>No uploaded videos. :'(</p>
@@ -54,7 +38,12 @@
 		  <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
 		</svg> Latest News</div>
 					<div class="panel-body">
-						We rewrote the site. We also lost the domain. Have fun!
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor vitae tortor 
+						mollis porta. Aliquam id lacus eros. Maecenas eu ligula quis leo sodales faucibus 
+						id sed diam. Quisque ante quam, vestibulum sit amet felis et, malesuada pretium 
+						velit. Vivamus varius nisl elit, sed suscipit est pellentesque eu. Maecenas in 
+						tincidunt nunc. Praesent ut scelerisque libero. Suspendisse tempor pulvinar dolor
+						sed ornare. Praesent suscipit enim congue, posuere urna ut, ullamcorper libero. 
 					</div>
 				</div>
 			</div>
